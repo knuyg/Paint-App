@@ -13,12 +13,13 @@ namespace Paint_App
 
         private Panel canvasPanel;
         private bool isCanvasCreated = false;
-        private Form mainForm;
+        private PaintForm mainForm;
 
-        private Point location = new System.Drawing.Point(30, 30);
-        private Size size = new System.Drawing.Size(50, 50);
+        private Point canvasLocation = new System.Drawing.Point(30, 30);
+        private Point centerOfWindow = new System.Drawing.Point(0, 0);
+        private Size canvasSize = new System.Drawing.Size(1500, 500);
 
-        public CanvasManager(Form form)
+        public CanvasManager(PaintForm form)
         {
             this.mainForm = form;
         }
@@ -27,35 +28,52 @@ namespace Paint_App
         {
             if (!isCanvasCreated)
             {
-                // / Create a new canvas Panel
+                // Create a new canvas Panel
                 canvasPanel = new Panel
                 {
                     Dock = DockStyle.None,
-                    BackColor = Color.Red,
+                    BackColor = Color.Red, // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
                     BorderStyle = BorderStyle.FixedSingle
                 };
 
+                this.isCanvasCreated = true;
+                //
                 // Initialize the canvas.
-                // The canvas has to be 50 px below the latest toolbar, and 50 px on the right of the left border of the window.
                 //
-                // Need first to check whether there is any MenuStrip and ToolStrip
-                // If that's the case, just need to append the heights of these strips to the default location
+                // The Panel should always be in the center of the window.
+                // First, we check if there is any toolbar on top of the window to know where the origin point should be.
                 //
-
                 if (mainForm.Controls.OfType<MenuStrip>().Any())
                 {
                     var menuStripHeight = mainForm.Controls.OfType<MenuStrip>().First().Height;
-                    this.location.Y += menuStripHeight;
+                    this.centerOfWindow.Y += menuStripHeight;
 
                     if (mainForm.Controls.OfType<ToolStrip>().Any())
                     {
                         var toolStripHeight = mainForm.Controls.OfType<ToolStrip>().First().Height;
-                        this.location.Y += toolStripHeight;
+                        this.centerOfWindow.Y += toolStripHeight;
                     }
                 }
+                //
+                // Then we define the center point of the window.
+                //
+                this.centerOfWindow.X += mainForm.ClientSize.Width/2;
+                this.centerOfWindow.Y += mainForm.ClientSize.Height;
+                this.centerOfWindow.Y /= 2;
+                //
+                // Need to check whether there is a statusStrip as well
+                //
+                this.canvasLocation.X = this.centerOfWindow.X - this.canvasSize.Width/2;
+                this.canvasLocation.Y = this.centerOfWindow.Y - this.canvasSize.Height/2;
 
-                canvasPanel.Location = this.location;
-                canvasPanel.Size = this.size;
+                if (mainForm.Controls.OfType<StatusStrip>().Any())
+                {
+                    var StatusStripHeight = mainForm.Controls.OfType<StatusStrip>().First().Height;
+                    this.canvasLocation.Y -= StatusStripHeight / 2;
+                }
+
+                canvasPanel.Location = this.canvasLocation;
+                canvasPanel.Size = this.canvasSize;
 
                 // Add the canvas to the form's controls
                 mainForm.Controls.Add(canvasPanel);
@@ -74,6 +92,14 @@ namespace Paint_App
                         g.Clear(Color.White);
                     }
                 }
+            }
+        }
+
+        public void DrawRectangle()
+        {
+            if (isCanvasCreated && this.mainForm.currentTool.Name == "Rectangle")
+            {
+
             }
         }
     }
