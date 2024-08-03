@@ -16,7 +16,7 @@ namespace Paint_App
         private PaintForm mainForm;
 
         private Point canvasLocation = new System.Drawing.Point(30, 30);
-        private Point centerOfWindow = new System.Drawing.Point(0, 0);
+        private Point centerOfWindow;
         private Size canvasSize = new System.Drawing.Size(1500, 500);
 
         public CanvasManager(PaintForm form)
@@ -37,46 +37,14 @@ namespace Paint_App
                 };
 
                 this.isCanvasCreated = true;
-                //
-                // Initialize the canvas.
-                //
-                // The Panel should always be in the center of the window.
-                // First, we check if there is any toolbar on top of the window to know where the origin point should be.
-                //
-                if (mainForm.Controls.OfType<MenuStrip>().Any())
-                {
-                    var menuStripHeight = mainForm.Controls.OfType<MenuStrip>().First().Height;
-                    this.centerOfWindow.Y += menuStripHeight;
 
-                    if (mainForm.Controls.OfType<ToolStrip>().Any())
-                    {
-                        var toolStripHeight = mainForm.Controls.OfType<ToolStrip>().First().Height;
-                        this.centerOfWindow.Y += toolStripHeight;
-                    }
-                }
-                //
-                // Then we define the center point of the window.
-                //
-                this.centerOfWindow.X += mainForm.ClientSize.Width/2;
-                this.centerOfWindow.Y += mainForm.ClientSize.Height;
-                this.centerOfWindow.Y /= 2;
-                //
-                // Need to check whether there is a statusStrip as well
-                //
-                this.canvasLocation.X = this.centerOfWindow.X - this.canvasSize.Width/2;
-                this.canvasLocation.Y = this.centerOfWindow.Y - this.canvasSize.Height/2;
-
-                if (mainForm.Controls.OfType<StatusStrip>().Any())
-                {
-                    var StatusStripHeight = mainForm.Controls.OfType<StatusStrip>().First().Height;
-                    this.canvasLocation.Y -= StatusStripHeight / 2;
-                }
-
-                canvasPanel.Location = this.canvasLocation;
-                canvasPanel.Size = this.canvasSize;
+                CenterPanel();
 
                 // Add the canvas to the form's controls
                 mainForm.Controls.Add(canvasPanel);
+
+                // Add event handler for form resize
+                mainForm.Resize += MainForm_Resize;
 
             }
             else
@@ -93,6 +61,56 @@ namespace Paint_App
                     }
                 }
             }
+        }
+
+        private void CenterPanel()
+        {
+            //
+            // The Panel should always be in the center of the window.
+            // First, we check if there is any toolbar on top of the window to know where the origin point should be.
+            //
+
+            centerOfWindow = new System.Drawing.Point(0, 0);
+
+            if (mainForm.Controls.OfType<MenuStrip>().Any())
+            {
+                var menuStripHeight = mainForm.Controls.OfType<MenuStrip>().First().Height;
+                this.centerOfWindow.Y += menuStripHeight;
+
+                if (mainForm.Controls.OfType<ToolStrip>().Any())
+                {
+                    var toolStripHeight = mainForm.Controls.OfType<ToolStrip>().First().Height;
+                    this.centerOfWindow.Y += toolStripHeight;
+                }
+            }
+            //
+            // Then we define the center point of the window.
+            //
+            this.centerOfWindow.X += mainForm.ClientSize.Width / 2;
+            this.centerOfWindow.Y += mainForm.ClientSize.Height;
+            this.centerOfWindow.Y /= 2;
+            //
+            // Then assign the canvasLocation to the center of the window.
+            //
+            this.canvasLocation.X = this.centerOfWindow.X - this.canvasSize.Width / 2;
+            this.canvasLocation.Y = this.centerOfWindow.Y - this.canvasSize.Height / 2;
+            //
+            // Need to check whether there is a statusStrip as well.
+            //
+            if (mainForm.Controls.OfType<StatusStrip>().Any())
+            {
+                var StatusStripHeight = mainForm.Controls.OfType<StatusStrip>().First().Height;
+                this.canvasLocation.Y -= StatusStripHeight / 2;
+            }
+
+            canvasPanel.Location = this.canvasLocation;
+            canvasPanel.Size = this.canvasSize;
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            CenterPanel();
+            Console.WriteLine($"Panel visible: {canvasPanel.Visible}, Location: {canvasPanel.Location}, Size: {canvasPanel.Size}");
         }
 
         public void DrawRectangle()
