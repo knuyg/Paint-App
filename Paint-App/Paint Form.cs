@@ -14,7 +14,7 @@ namespace Paint_App
     {
         private bool isDrawing = false;
         private bool isThereCanva = false;
-        private Pen currentPen;
+        public Pen currentPen;
         public Tool currentTool;
         private CanvasManager canvasManager;
 
@@ -63,6 +63,7 @@ namespace Paint_App
         {
             currentTool.Name = "Rectangle";
             lblTool.Text = currentTool.Name;
+            canvasManager.DrawRectangle();
         }
 
         private void ToolSelect_Circle_Click(object sender, EventArgs e)

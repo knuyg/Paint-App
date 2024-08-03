@@ -14,6 +14,7 @@ namespace Paint_App
         private Panel canvasPanel;
         private bool isCanvasCreated = false;
         private PaintForm mainForm;
+        private Pen currentPen;
 
         private Point canvasLocation = new System.Drawing.Point(30, 30);
         private Point centerOfWindow;
@@ -115,10 +116,15 @@ namespace Paint_App
 
         public void DrawRectangle()
         {
-            if (isCanvasCreated && this.mainForm.currentTool.Name == "Rectangle")
+            using (Graphics g = canvasPanel.CreateGraphics())
             {
-
+                if (isCanvasCreated && this.mainForm.currentTool.Name == "Rectangle")
+                {
+                    this.currentPen = this.mainForm.currentPen;
+                    g.DrawRectangle(currentPen, 10, 10, 100, 50);
+                }
             }
+                
         }
     }
 }

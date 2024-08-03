@@ -40,6 +40,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblMousePos = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTool = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -75,7 +76,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolSelect_Brush,
             this.ToolSelect_Rectangle,
-            this.ToolSelect_Circle});
+            this.ToolSelect_Circle,
+            this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1584, 25);
@@ -89,7 +91,8 @@
             this.ToolSelect_Brush.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolSelect_Brush.Name = "ToolSelect_Brush";
             this.ToolSelect_Brush.Size = new System.Drawing.Size(23, 22);
-            this.ToolSelect_Brush.Text = "toolStripButton1";
+            this.ToolSelect_Brush.Text = "Brush tool";
+            this.ToolSelect_Brush.ToolTipText = "Brush tool";
             this.ToolSelect_Brush.Click += new System.EventHandler(this.ToolSelect_Brush_Click);
             // 
             // ToolSelect_Rectangle
@@ -99,7 +102,8 @@
             this.ToolSelect_Rectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolSelect_Rectangle.Name = "ToolSelect_Rectangle";
             this.ToolSelect_Rectangle.Size = new System.Drawing.Size(23, 22);
-            this.ToolSelect_Rectangle.Text = "toolStripButton2";
+            this.ToolSelect_Rectangle.Text = "Rectangle tool";
+            this.ToolSelect_Rectangle.ToolTipText = "Rectangle tool";
             this.ToolSelect_Rectangle.Click += new System.EventHandler(this.ToolSelect_Rectangle_Click);
             // 
             // ToolSelect_Circle
@@ -109,7 +113,8 @@
             this.ToolSelect_Circle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolSelect_Circle.Name = "ToolSelect_Circle";
             this.ToolSelect_Circle.Size = new System.Drawing.Size(23, 22);
-            this.ToolSelect_Circle.Text = "toolStripButton3";
+            this.ToolSelect_Circle.Text = "Circle tool";
+            this.ToolSelect_Circle.ToolTipText = "Circle tool";
             this.ToolSelect_Circle.Click += new System.EventHandler(this.ToolSelect_Circle_Click);
             // 
             // statusStrip1
@@ -136,6 +141,11 @@
             this.lblTool.Name = "lblTool";
             this.lblTool.Size = new System.Drawing.Size(37, 17);
             this.lblTool.Text = "Brush";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // PaintForm
             // 
@@ -172,6 +182,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblMousePos;
         private System.Windows.Forms.ToolStripStatusLabel lblTool;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
