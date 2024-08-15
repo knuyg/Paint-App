@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CanvasManager.cs" />
+    <Compile Include="DrawingManager.cs" />
+    <Compile Include="Object.cs" />
     <Compile Include="Paint Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +60,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rectangle.cs" />
     <Compile Include="Tool.cs" />
     <EmbeddedResource Include="Paint Form.resx">
       <DependentUpon>Paint Form.cs</DependentUpon>

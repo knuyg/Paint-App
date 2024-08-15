@@ -12,18 +12,13 @@ namespace Paint_App
 {
     public partial class PaintForm : System.Windows.Forms.Form
     {
-        private bool isDrawing = false;
         private bool isThereCanva = false;
-        public Pen currentPen;
-        public Tool currentTool;
+        private DrawingManager drawingManager = new DrawingManager();
         private CanvasManager canvasManager;
 
         public PaintForm()
         {
             InitializeComponent();
-
-            currentTool = new Tool();
-            currentPen = new Pen(Color.Black, 5);
             canvasManager = new CanvasManager(this);
 
             // Subscribe to the MouseMove event for the form
@@ -55,21 +50,21 @@ namespace Paint_App
 
         private void ToolSelect_Brush_Click(object sender, EventArgs e)
         {
-            currentTool.Name = "Brush";
-            lblTool.Text = currentTool.Name;
+            drawingManager.currentTool.Name = "Brush";
+            lblTool.Text = drawingManager.currentTool.Name;
         }
 
         private void ToolSelect_Rectangle_Click(object sender, EventArgs e)
         {
-            currentTool.Name = "Rectangle";
-            lblTool.Text = currentTool.Name;
-            canvasManager.DrawRectangle();
+            drawingManager.currentTool.Name = "Rectangle";
+            lblTool.Text = drawingManager.currentTool.Name;
+            drawingManager.DrawRectangle(this.canvasManager);
         }
 
         private void ToolSelect_Circle_Click(object sender, EventArgs e)
         {
-            currentTool.Name = "Circle";
-            lblTool.Text = currentTool.Name;
+            drawingManager.currentTool.Name = "Circle";
+            lblTool.Text = drawingManager.currentTool.Name;
         }
     }
 }
