@@ -52,8 +52,8 @@ namespace Paint_App
             {
                 if (canvasManager.isCanvasCreated && this.currentTool.Name == "Rectangle")
                 {
-                    int x = startPoint.X;
-                    int y = startPoint.Y;
+                    int x = Math.Min(startPoint.X, endPoint.X);
+                    int y = Math.Min(startPoint.Y, endPoint.Y);
                     int width = Math.Abs(startPoint.X - endPoint.X);
                     int height = Math.Abs(startPoint.Y - endPoint.Y);
                     g.DrawRectangle(currentPen, x, y, width, height);
