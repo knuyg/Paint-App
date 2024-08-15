@@ -12,8 +12,6 @@ namespace Paint_App
 {
     public partial class PaintForm : System.Windows.Forms.Form
     {
-        private bool isThereCanva = false;
-        private DrawingManager drawingManager = new DrawingManager();
         private CanvasManager canvasManager;
 
         public PaintForm()
@@ -21,8 +19,9 @@ namespace Paint_App
             InitializeComponent();
             canvasManager = new CanvasManager(this);
 
-            // Subscribe to the MouseMove event for the form
+            // Subscribe to the MouseMove event for the form selection
             this.MouseMove += new MouseEventHandler(PaintForm_MouseMove);
+
         }
 
         // Event handler for mouse movement
@@ -45,26 +44,26 @@ namespace Paint_App
             // When there is already a canva, it clears the canva after asking the user if he is sure
 
             canvasManager.CreateOrClearCanvas();
+            canvasManager.SubscribeToEvents();
 
         }
 
         private void ToolSelect_Brush_Click(object sender, EventArgs e)
         {
-            drawingManager.currentTool.Name = "Brush";
-            lblTool.Text = drawingManager.currentTool.Name;
+            canvasManager.drawingManager.currentTool.Name = "Brush";
+            lblTool.Text = canvasManager.drawingManager.currentTool.Name;
         }
 
         private void ToolSelect_Rectangle_Click(object sender, EventArgs e)
         {
-            drawingManager.currentTool.Name = "Rectangle";
-            lblTool.Text = drawingManager.currentTool.Name;
-            drawingManager.DrawRectangle(this.canvasManager);
+            canvasManager.drawingManager.currentTool.Name = "Rectangle";
+            lblTool.Text = canvasManager.drawingManager.currentTool.Name;
         }
 
         private void ToolSelect_Circle_Click(object sender, EventArgs e)
         {
-            drawingManager.currentTool.Name = "Circle";
-            lblTool.Text = drawingManager.currentTool.Name;
+            canvasManager.drawingManager.currentTool.Name = "Circle";
+            lblTool.Text = canvasManager.drawingManager.currentTool.Name;
         }
     }
 }

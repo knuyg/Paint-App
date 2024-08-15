@@ -7,15 +7,43 @@ using System.Threading.Tasks;
 
 namespace Paint_App
 {
-    internal class DrawingManager
+    public class DrawingManager
     {
         public Pen currentPen;
         public Tool currentTool;
+
+        // Variables for drawing
+        private Point startPoint;
+        private Point endPoint;
+        private bool isDrawing;
 
         public DrawingManager()
         {
             this.currentPen = new Pen(Color.Black, 5);
             this.currentTool = new Tool();
+        }
+
+        public void StartDrawing(Point location)
+        {
+            if (currentTool.Name == "Rectangle")
+            {
+                isDrawing = true;
+                startPoint = location;
+                endPoint = location;
+            }
+        }
+
+        public void ContinueDrawing(Point location)
+        {
+            if (isDrawing && currentTool.Name == "Rectangle")
+            {
+                endPoint = location;
+            }
+        }
+
+        public void EndDrawing()
+        {
+            isDrawing = false;
         }
 
         public void DrawRectangle(CanvasManager canvasManager)
@@ -24,7 +52,11 @@ namespace Paint_App
             {
                 if (canvasManager.isCanvasCreated && this.currentTool.Name == "Rectangle")
                 {
-                    g.DrawRectangle(currentPen, 10, 10, 100, 50);
+                    int x = startPoint.X;
+                    int y = startPoint.Y;
+                    int width = Math.Abs(startPoint.X - endPoint.X);
+                    int height = Math.Abs(startPoint.Y - endPoint.Y);
+                    g.DrawRectangle(currentPen, x, y, width, height);
                 }
             }
         }

@@ -10,10 +10,11 @@ namespace Paint_App
 {
     public class CanvasManager
     {
-
-        public Panel canvasPanel;
+        public Panel canvasPanel = new Panel();
         public bool isCanvasCreated = false;
         private PaintForm mainForm;
+
+        public DrawingManager drawingManager;
 
         private Point canvasLocation = new System.Drawing.Point(30, 30);
         private Point centerOfWindow;
@@ -22,6 +23,7 @@ namespace Paint_App
         public CanvasManager(PaintForm form)
         {
             this.mainForm = form;
+            drawingManager = new DrawingManager();
         }
 
         public void CreateOrClearCanvas()
@@ -111,6 +113,49 @@ namespace Paint_App
         {
             CenterPanel();
             Console.WriteLine($"Panel visible: {canvasPanel.Visible}, Location: {canvasPanel.Location}, Size: {canvasPanel.Size}");
+        }
+
+        public void SubscribeToEvents()
+        {
+            if (this.canvasPanel != null)
+            {
+                this.canvasPanel.MouseDown += DrawingPanel_MouseDown;
+                this.canvasPanel.MouseMove += DrawingPanel_MouseMove;
+                this.canvasPanel.MouseUp += DrawingPanel_MouseUp;
+                this.canvasPanel.Paint += DrawingPanel_Paint;
+            }
+        }
+
+        private void DrawingPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                drawingManager.StartDrawing(e.Location);
+                this.canvasPanel.Invalidate();
+            }
+        }
+
+        private void DrawingPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                drawingManager.ContinueDrawing(e.Location);
+                this.canvasPanel.Invalidate();
+            }
+        }
+
+        private void DrawingPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                drawingManager.EndDrawing();
+                this.canvasPanel.Invalidate();
+            }
+        }
+
+        private void DrawingPanel_Paint(object sender, PaintEventArgs e)
+        {
+            drawingManager.DrawRectangle(this);
         }
     }
 }
