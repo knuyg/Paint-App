@@ -7,16 +7,27 @@ using System.Threading.Tasks;
 
 namespace Paint_App
 {
-    internal class Ellipse : Object
+    public class Ellipse : Object
     {
-        private int width;
-        private int height;
-
-        public Ellipse(Point origin, int width, int height)
+        public Ellipse(int x, int y)
         {
-            this.origin = origin;
+            this.x = x;
+            this.y = y;
+            this.width = 0;
+            this.height = 0;
+        }
+
+        public Ellipse(int x, int y, int width, int height)
+        {
+            this.x = x;
+            this.y = y;
             this.width = width;
             this.height = height;
+        }
+
+        public override string GetInfo()
+        {
+            return $"Ellipse at ({this.x}, {this.y}), Width: {this.width}, Height: {this.height}";
         }
     }
 }

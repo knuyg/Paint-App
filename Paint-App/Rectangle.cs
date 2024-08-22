@@ -7,16 +7,26 @@ using System.Threading.Tasks;
 
 namespace Paint_App
 {
-    internal class Rectangle : Object
+    public class Rectangle : Object
     {
-        public int width;
-        public int height;
-
-        public Rectangle (Point origin, int width, int height)
+        public Rectangle(int x, int y)
         {
-            this.origin = origin;
+            this.x = x;
+            this.y = y;
+            this.width = 0;
+            this.height = 0;
+        }
+        public Rectangle (int x, int y, int width, int height)
+        {
+            this.x = x;
+            this.y = y;
             this.width = width;
             this.height = height;
+        }
+
+        public override string GetInfo()
+        {
+            return $"Rectangle at ({this.x}, {this.y}), Width: {this.width}, Height: {this.height}";
         }
     }
 }

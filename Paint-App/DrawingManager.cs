@@ -9,6 +9,7 @@ namespace Paint_App
 {
     public class DrawingManager
     {
+        #region Variables
         public Pen currentPen;
         public Tool currentTool;
 
@@ -17,22 +18,54 @@ namespace Paint_App
         private Point endPoint;
         private bool isDrawing;
 
+        public List<Object> objectsList = new List<Object>();
+        public int numberOfObjects = 0;
+        #endregion
+
         public DrawingManager()
         {
             this.currentPen = new Pen(Color.Black, 5);
             this.currentTool = new Tool();
         }
 
+        #region Methods handling the list of objects
+        public void AddRectangle(Point location)
+        {
+            numberOfObjects++;
+            Rectangle rect = new Rectangle(location.X, location.Y);
+            this.objectsList.Add(rect);
+        }
+
+        public void AddEllipse(Point location)
+        {
+            numberOfObjects++;
+            Ellipse ell = new Ellipse(location.X, location.Y);
+            this.objectsList.Add(ell);
+        }
+
+        public void PrintObjects()
+        {
+            Console.WriteLine("Drawing Objects:");
+            for (int i = 0; i < objectsList.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {objectsList[i].GetInfo()}");
+            }
+        }
+        #endregion
+
+        #region Methods to draw objects
         public void StartDrawing(Point location)
         {
             if (currentTool.Name == "Rectangle")
             {
+                AddRectangle(location);
                 isDrawing = true;
                 startPoint = location;
                 endPoint = location;
             }
             else if (currentTool.Name == "Ellipse")
             {
+                AddEllipse(location);
                 isDrawing = true;
                 startPoint = location;
                 endPoint = location;
@@ -44,6 +77,10 @@ namespace Paint_App
             if (isDrawing && (currentTool.Name == "Rectangle" || currentTool.Name == "Ellipse"))
             {
                 endPoint = location;
+                objectsList[objectsList.Count - 1].x = Math.Min(startPoint.X, endPoint.X);
+                objectsList[objectsList.Count - 1].y = Math.Min(startPoint.Y, endPoint.Y);
+                objectsList[objectsList.Count - 1].width = Math.Abs(startPoint.X - endPoint.X);
+                objectsList[objectsList.Count - 1].height = Math.Abs(startPoint.Y - endPoint.Y);
             }
         }
 
@@ -81,6 +118,6 @@ namespace Paint_App
                 }
             }
         }
-
+        #endregion
     }
 }

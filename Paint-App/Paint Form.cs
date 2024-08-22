@@ -65,5 +65,10 @@ namespace Paint_App
             canvasManager.drawingManager.currentTool.Name = "Ellipse";
             lblTool.Text = canvasManager.drawingManager.currentTool.Name;
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            canvasManager.drawingManager.PrintObjects();
+        }
     }
 }
