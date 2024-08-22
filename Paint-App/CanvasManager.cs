@@ -155,7 +155,14 @@ namespace Paint_App
 
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
-            drawingManager.DrawRectangle(this);
+            if (drawingManager.currentTool.Name == "Rectangle")
+            {
+                drawingManager.DrawRectangle(this);
+            }
+            else if (drawingManager.currentTool.Name == "Ellipse")
+            {
+                drawingManager.DrawEllipse(this);
+            }
         }
     }
 }

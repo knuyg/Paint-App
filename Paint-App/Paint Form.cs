@@ -62,7 +62,7 @@ namespace Paint_App
 
         private void ToolSelect_Circle_Click(object sender, EventArgs e)
         {
-            canvasManager.drawingManager.currentTool.Name = "Circle";
+            canvasManager.drawingManager.currentTool.Name = "Ellipse";
             lblTool.Text = canvasManager.drawingManager.currentTool.Name;
         }
     }

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CanvasManager.cs" />
     <Compile Include="DrawingManager.cs" />
+    <Compile Include="Ellipse.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="Paint Form.cs">
       <SubType>Form</SubType>

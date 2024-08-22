@@ -10,5 +10,10 @@ namespace Paint_App
     internal abstract class Object
     {
         public Point origin;
+
+        public Object()
+        {
+            this.origin = new Point(0, 0);
+        }
     }
 }
