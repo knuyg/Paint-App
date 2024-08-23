@@ -104,7 +104,7 @@ namespace Paint_App
             }
         }
 
-        public void DrawRectangle(CanvasManager canvasManager)
+        public void DrawCurrentRectangle(CanvasManager canvasManager)
         {
             using (Graphics g = canvasManager.canvasPanel.CreateGraphics())
             {
@@ -119,7 +119,7 @@ namespace Paint_App
             }
         }
 
-        public void DrawEllipse(CanvasManager canvasManager)
+        public void DrawCurrentEllipse(CanvasManager canvasManager)
         {
             using (Graphics g = canvasManager.canvasPanel.CreateGraphics())
             {

@@ -34,13 +34,13 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.ToolSelect_Brush = new System.Windows.Forms.ToolStripButton();
-            this.ToolSelect_Rectangle = new System.Windows.Forms.ToolStripButton();
-            this.ToolSelect_Circle = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblMousePos = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTool = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolSelect_Brush = new System.Windows.Forms.ToolStripButton();
+            this.ToolSelect_Rectangle = new System.Windows.Forms.ToolStripButton();
+            this.ToolSelect_Circle = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -54,7 +54,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1924, 30);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -63,7 +63,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -82,49 +82,16 @@
             this.ToolSelect_Circle,
             this.toolStripSeparator1,
             this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1924, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1924, 31);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // ToolSelect_Brush
-            // 
-            this.ToolSelect_Brush.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolSelect_Brush.Image = ((System.Drawing.Image)(resources.GetObject("ToolSelect_Brush.Image")));
-            this.ToolSelect_Brush.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolSelect_Brush.Name = "ToolSelect_Brush";
-            this.ToolSelect_Brush.Size = new System.Drawing.Size(29, 24);
-            this.ToolSelect_Brush.Text = "Brush tool";
-            this.ToolSelect_Brush.ToolTipText = "Brush tool";
-            this.ToolSelect_Brush.Click += new System.EventHandler(this.ToolSelect_Brush_Click);
-            // 
-            // ToolSelect_Rectangle
-            // 
-            this.ToolSelect_Rectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolSelect_Rectangle.Image = ((System.Drawing.Image)(resources.GetObject("ToolSelect_Rectangle.Image")));
-            this.ToolSelect_Rectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolSelect_Rectangle.Name = "ToolSelect_Rectangle";
-            this.ToolSelect_Rectangle.Size = new System.Drawing.Size(29, 24);
-            this.ToolSelect_Rectangle.Text = "Rectangle tool";
-            this.ToolSelect_Rectangle.ToolTipText = "Rectangle tool";
-            this.ToolSelect_Rectangle.Click += new System.EventHandler(this.ToolSelect_Rectangle_Click);
-            // 
-            // ToolSelect_Circle
-            // 
-            this.ToolSelect_Circle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolSelect_Circle.Image = ((System.Drawing.Image)(resources.GetObject("ToolSelect_Circle.Image")));
-            this.ToolSelect_Circle.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolSelect_Circle.Name = "ToolSelect_Circle";
-            this.ToolSelect_Circle.Size = new System.Drawing.Size(29, 24);
-            this.ToolSelect_Circle.Text = "Circle tool";
-            this.ToolSelect_Circle.ToolTipText = "Circle tool";
-            this.ToolSelect_Circle.Click += new System.EventHandler(this.ToolSelect_Circle_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // statusStrip1
             // 
@@ -153,13 +120,46 @@
             this.lblTool.Size = new System.Drawing.Size(45, 20);
             this.lblTool.Text = "Brush";
             // 
+            // ToolSelect_Brush
+            // 
+            this.ToolSelect_Brush.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolSelect_Brush.Image = ((System.Drawing.Image)(resources.GetObject("ToolSelect_Brush.Image")));
+            this.ToolSelect_Brush.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolSelect_Brush.Name = "ToolSelect_Brush";
+            this.ToolSelect_Brush.Size = new System.Drawing.Size(29, 28);
+            this.ToolSelect_Brush.Text = "Brush tool";
+            this.ToolSelect_Brush.ToolTipText = "Brush tool";
+            this.ToolSelect_Brush.Click += new System.EventHandler(this.ToolSelect_Brush_Click);
+            // 
+            // ToolSelect_Rectangle
+            // 
+            this.ToolSelect_Rectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolSelect_Rectangle.Image = global::Paint_App.Properties.Resources._002_rectangle;
+            this.ToolSelect_Rectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolSelect_Rectangle.Name = "ToolSelect_Rectangle";
+            this.ToolSelect_Rectangle.Size = new System.Drawing.Size(29, 28);
+            this.ToolSelect_Rectangle.Text = "Rectangle tool";
+            this.ToolSelect_Rectangle.ToolTipText = "Rectangle tool";
+            this.ToolSelect_Rectangle.Click += new System.EventHandler(this.ToolSelect_Rectangle_Click);
+            // 
+            // ToolSelect_Circle
+            // 
+            this.ToolSelect_Circle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolSelect_Circle.Image = global::Paint_App.Properties.Resources._001_ellipse;
+            this.ToolSelect_Circle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolSelect_Circle.Name = "ToolSelect_Circle";
+            this.ToolSelect_Circle.Size = new System.Drawing.Size(29, 28);
+            this.ToolSelect_Circle.Text = "Ellipse tool";
+            this.ToolSelect_Circle.ToolTipText = "Ellipse tool";
+            this.ToolSelect_Circle.Click += new System.EventHandler(this.ToolSelect_Circle_Click);
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 28);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -172,7 +172,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PaintForm";
             this.Text = "Paint App";
             this.Load += new System.EventHandler(this.PaintForm_Load);

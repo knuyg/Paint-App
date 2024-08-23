@@ -162,6 +162,7 @@ namespace Paint_App
 
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
+            // Method called when Invalidate() is called
             drawingManager.DrawAllObjects(this);
         }
     }
