@@ -88,6 +88,21 @@ namespace Paint_App
         {
             isDrawing = false;
         }
+        public void DrawAllObjects(CanvasManager canvasManager)
+        {
+            using (Graphics g = canvasManager.canvasPanel.CreateGraphics())
+            {
+                if (canvasManager.isCanvasCreated && objectsList.Count > 0)
+                {
+                    canvasManager.ClearCanvas();
+
+                    foreach (Object obj in objectsList)
+                    {
+                        obj.DrawObject(g, currentPen);
+                    }
+                }
+            }
+        }
 
         public void DrawRectangle(CanvasManager canvasManager)
         {

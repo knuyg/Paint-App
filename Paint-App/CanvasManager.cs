@@ -56,11 +56,18 @@ namespace Paint_App
 
                 if (result == DialogResult.Yes)
                 {
-                    // Clear the existing canvas
-                    using (Graphics g = canvasPanel.CreateGraphics())
-                    {
-                        g.Clear(Color.White);
-                    }
+                    this.ClearCanvas();
+                }
+            }
+        }
+
+        public void ClearCanvas()
+        {
+            if (isCanvasCreated)
+            {
+                using (Graphics g = canvasPanel.CreateGraphics())
+                {
+                    g.Clear(Color.White);
                 }
             }
         }
@@ -155,14 +162,7 @@ namespace Paint_App
 
         private void DrawingPanel_Paint(object sender, PaintEventArgs e)
         {
-            if (drawingManager.currentTool.Name == "Rectangle")
-            {
-                drawingManager.DrawRectangle(this);
-            }
-            else if (drawingManager.currentTool.Name == "Ellipse")
-            {
-                drawingManager.DrawEllipse(this);
-            }
+            drawingManager.DrawAllObjects(this);
         }
     }
 }

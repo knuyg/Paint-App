@@ -28,5 +28,10 @@ namespace Paint_App
         {
             return $"Rectangle at ({this.x}, {this.y}), Width: {this.width}, Height: {this.height}";
         }
+
+        public override void DrawObject(Graphics g, Pen p)
+        {
+            g.DrawRectangle(p, this.x, this.y, this.width, this.height);
+        }
     }
 }

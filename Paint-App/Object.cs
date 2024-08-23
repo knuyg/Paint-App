@@ -23,5 +23,7 @@ namespace Paint_App
         }
 
         public abstract string GetInfo();
+
+        public abstract void DrawObject(Graphics g, Pen p);
     }
 }
