@@ -34,14 +34,14 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblMousePos = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblTool = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolSelect_Brush = new System.Windows.Forms.ToolStripButton();
             this.ToolSelect_Rectangle = new System.Windows.Forms.ToolStripButton();
             this.ToolSelect_Circle = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblMousePos = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblTool = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -88,38 +88,6 @@
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblMousePos,
-            this.lblTool});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 773);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(19, 0, 1, 0);
-            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.statusStrip1.Size = new System.Drawing.Size(1924, 26);
-            this.statusStrip1.TabIndex = 7;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblMousePos
-            // 
-            this.lblMousePos.Name = "lblMousePos";
-            this.lblMousePos.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblMousePos.Size = new System.Drawing.Size(149, 20);
-            this.lblMousePos.Text = "Mouse Position: (0, 0)";
-            // 
-            // lblTool
-            // 
-            this.lblTool.Name = "lblTool";
-            this.lblTool.Size = new System.Drawing.Size(45, 20);
-            this.lblTool.Text = "Brush";
-            // 
             // ToolSelect_Brush
             // 
             this.ToolSelect_Brush.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -153,6 +121,11 @@
             this.ToolSelect_Circle.ToolTipText = "Ellipse tool";
             this.ToolSelect_Circle.Click += new System.EventHandler(this.ToolSelect_Circle_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -163,11 +136,38 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblMousePos,
+            this.lblTool});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 773);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(19, 0, 1, 0);
+            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.statusStrip1.Size = new System.Drawing.Size(1924, 26);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblMousePos
+            // 
+            this.lblMousePos.Name = "lblMousePos";
+            this.lblMousePos.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblMousePos.Size = new System.Drawing.Size(149, 20);
+            this.lblMousePos.Text = "Mouse Position: (0, 0)";
+            // 
+            // lblTool
+            // 
+            this.lblTool.Name = "lblTool";
+            this.lblTool.Size = new System.Drawing.Size(45, 20);
+            this.lblTool.Text = "Brush";
+            // 
             // PaintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1924, 799);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);

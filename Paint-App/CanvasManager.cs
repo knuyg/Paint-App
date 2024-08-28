@@ -13,6 +13,7 @@ namespace Paint_App
         public Panel canvasPanel = new Panel();
         public bool isCanvasCreated = false;
         private PaintForm mainForm;
+        public Color CanvasBackColor = Color.White;
 
         public DrawingManager drawingManager;
 
@@ -34,7 +35,7 @@ namespace Paint_App
                 canvasPanel = new Panel
                 {
                     Dock = DockStyle.None,
-                    BackColor = Color.Red, // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+                    BackColor = this.CanvasBackColor, 
                     BorderStyle = BorderStyle.FixedSingle
                 };
 
@@ -67,7 +68,7 @@ namespace Paint_App
             {
                 using (Graphics g = canvasPanel.CreateGraphics())
                 {
-                    g.Clear(Color.White);
+                    g.Clear(this.CanvasBackColor);
                 }
             }
         }
